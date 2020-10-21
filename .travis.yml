@@ -46,7 +46,7 @@ jobs:
         - pip install --user awscli
         - export PATH=$PATH:$HOME/.local/bin
         - eval $(aws ecr get-login-password --region $REGION_NAME)
-        - docker login --username $DOCKER_HUB_USER --password $DOCKER_HUB_PSW
+        - eval $(docker login --username $DOCKER_HUB_USER --password $DOCKER_HUB_PSW)
         - docker build -t pchmn/la-danze-en-ldc-twitter-bot . 
         - docker push pchmn/la-danze-en-ldc-twitter-bot:latest
         - aws ecs update-service --cluster $CLUSTER_NAME --service $SERVICE_NAME --force-new-deployment --region $REGION_NAME
