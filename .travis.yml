@@ -44,7 +44,7 @@ jobs:
       script: 
         - pip install --user awscli
         - export PATH=$PATH:$HOME/.local/bin
-        - eval $(aws ecr get-login --region $REGION_NAME)
+        - aws ecr get-login-password --region $REGION_NAME
         - docker login --username $DOCKER_HUB_USER --password $DOCKER_HUB_PSW
         - docker build -t pchmn/la-danze-en-ldc-twitter-bot . 
         - docker push pchmn/la-danze-en-ldc-twitter-bot:latest
