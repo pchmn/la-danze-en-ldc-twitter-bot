@@ -42,6 +42,7 @@ jobs:
         # Donwload dependencies
         use: dependencies
       script: 
+        - pip install --upgrade pip
         - pip install --user awscli
         - export PATH=$PATH:$HOME/.local/bin
         - aws ecr get-login-password --region $REGION_NAME
